@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Feature-Conditioned Cascaded Video Diffusion Models for Precise Echocardiogram Synthesis">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AN AUDIO-TEXTUAL DIFFUSION MODEL FOR CONVERTING SPEECH SIGNALS INTO ULTRASOUND TONGUE IMAGING DATA</title>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/bulma.min.css">
+  <link rel="stylesheet" href="./css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="icon" href="./favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./js/fontawesome.all.min.js"></script>
+  <script src="./js/bulma-carousel.min.js"></script>
+  <script src="./js/bulma-slider.min.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="https://kit.fontawesome.com/93a5d09ba9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <!-- Title section -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">AN AUDIO-TEXTUAL DIFFUSION MODEL FOR CONVERTING SPEECH SIGNALS INTO ULTRASOUND TONGUE IMAGING DATA</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="#">Yudong Yang</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="#">Rongfeng Su</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="#">Xiaokang Liu</a><sup>1,2</sup>,</span>
+              <span class="author-block">
+                <a href="#">Nan Yan</a><sup>1,3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Lan wang</a><sup>1,3</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Shenzhen Institute of Advanced Technology, Chinese Academy of Sciences, Shenzhen, China.</span><br>
+              <span class="author-block"><sup>2</sup>University of Chinese Academy of Sciences, Beijing, China.</span><br>
+              <span class="author-block"><sup>3</sup>Guangdong-Hong Kong-Macao Joint Laboratory of Human-Machine Intelligence-Synergy Systems,
+Shenzhen, China.</span><br>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Dataset Link. -->
+                <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+                </span> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract. -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Acoustic-to-articulatory inversion (AAI) is to convert audio into the movement of articulators, such as ultrasound images (UIs) of the tongue. A key issue of existing AAI methods is only using the highly personalized information from acoustic inputs to derive the general patterns of tongue motions, and thus the quality of generated UIs is limited. To address this issue, this paper proposes an audio-textual diffusion model for generating UIs from speech data, named WAV2UIT. This model consists of two stages: conditional encoding and UI generation. In the first stage, the inherent acoustic characteristics of individuals related to the details of tongue movements are encoded by using wav2vec 2.0, while the ASR transcriptions in the textual space related to the universality of tongue motions are encoded by using BERT. In the second stage, high-quality UIs are generated by using a diffusion model with the cyclic denoising sampling strategy. Experimental results on a Mandarin speech-ultrasound dataset showed that the proposed WAV2UIT system outperformed the state-of-the-art DNN baseline for UI generation by a LPIPS improvement of 67.95% relative. The codes and examples can be found on the website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video demo -->
+  <section class="section">
+    <div class="container content">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+      <!-- <div class="columns is-centered has-text-centered"> -->
+          <h2 class="title is-3 is-centered"> This is  real and fake Ultrasound tongue imaging
+          </h2>
+          <p>Hover a video to see whether it's an original sample or a generated sample.</p>
+          <p>Our ultrasound.</p>
+          <div id="gif-mosaic">
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/original/1.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>Original</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/original/2.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>Original</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/original/3.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>Original</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/original/4.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>Original</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/original/5.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>Original</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/original/5.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>Original</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/a4u+a/1.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>A4U+A</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/a4u+a/2.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>A4U+A</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/a4u+a/3.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>A4U+A</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/a4u+a/4.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>A4U+A</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/a4u+a/5.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>A4U+A</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/a4u+a/5.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>A4U+A</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/a4u+at/1.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>A4U+AT</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/a4u+at/2.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>A4U+AT</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/a4u+at/3.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>A4U+AT</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/a4u+at/4.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>A4U+AT</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/a4u+at/5.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>A4U+AT</div>
+                </div>
+              </div>
+            </div>
+            <div class="video_wrapper">
+              <div class="video_container">
+                <video  width="224" height="365" controls >
+                  <source src="pool/a4u+at/5.mp4" type="video/mp4">
+                </video>
+                <div class="caption">
+                  <div>A4U+AT</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div><span id="score">Score: 0/0 (0%)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Datasets. -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Datasets</h2>
+          <div class="content has-text-justified">
+            <p>
+              Experiments were conducted on Mandarin speech-ultrasound
+              dataset. This dataset was collected from 44 healthy persons
+              with three different speech tasks (vowel, word and sentence),
+              totally 6.85 hours. The training set consists of 40 speakers,
+              while the test set consists of 4 speakers. No overlap exists between the training and test sets. The UTI data were recorded
+              in mid sagittal orientation using a Focus&Fusion Finus 55 ultrasound system with a sampling rate of 60 fps and a resolution of 920×700. The P5-2 phased array probe was fixed
+              by an ultrasound stabilization headset. The speech data were
+              recorded by a BOYA BY-WM4 PRO microphone with a sampling frequency of 16khz and single channel. The speech signals and UTI data were synchronized by using an external
+              sound card. The downsampled UTI data under different resolutions were used for training different models.            </p>
+            <table style=" width: 100%;border-collapse: collapse;margin-bottom: 20px; ">
+              <thead>
+              <tr>
+                <th style=" border: 1px solid black; padding: 10px; text-align: center;  background-color: #f2f2f2; ">Tasks</th>
+                <th style=" border: 1px solid black; padding: 10px; text-align: center;  background-color: #f2f2f2;">Number</th>
+                <th style=" border: 1px solid black; padding: 10px; text-align: center;  background-color: #f2f2f2;">Time (hours)</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td style=" border: 1px solid black; padding: 10px; text-align: center; text-align: center">Vowel</td>
+                <td style=" border: 1px solid black; padding: 10px; text-align: center; text-align: center">687</td>
+                <td style=" border: 1px solid black; padding: 10px; text-align: center; text-align: center">0.76</td>
+              </tr>
+              <tr>
+                <td style=" border: 1px solid black; padding: 10px; text-align: center; text-align: center">Word</td>
+                <td style=" border: 1px solid black; padding: 10px; text-align: center; text-align: center">599</td>
+                <td style=" border: 1px solid black; padding: 10px; text-align: center; text-align: center">0.66</td>
+              </tr>
+              <tr>
+                <td style=" border: 1px solid black; padding: 10px; text-align: center; text-align: center">Sentence</td>
+                <td style=" border: 1px solid black; padding: 10px; text-align: center; text-align: center">4913</td>
+                <td style=" border: 1px solid black; padding: 10px; text-align: center; text-align: center">5.42</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+        Under Viewer
+<!--        @misc{reynaud2023featureconditioned,-->
+<!--          title={Feature-Conditioned Cascaded Video Diffusion Models for Precise Echocardiogram Synthesis},-->
+<!--          author={Hadrien Reynaud and Mengyun Qiao and Mischa Dombrowski and Thomas Day and Reza Razavi and Alberto Gomez and Paul Leeson and Bernhard Kainz},-->
+<!--          year={2023},-->
+<!--          eprint={2303.12644},-->
+<!--          archivePrefix={arXiv},-->
+<!--          primaryClass={cs.CV}-->
+<!--        }-->
+    </code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              Website source code based on the source code of
+              <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+<script>
+  // 获取所有的视频容器元素
+  const videoContainers = document.querySelectorAll('.video_container');
+
+  // 遍历每个视频容器
+  videoContainers.forEach((container) => {
+    const img = container.querySelector('img'); // 获取容器内的GIF元素
+    img.addEventListener('mouseover', () => {
+      img.src = img.src + '?random=' + Math.random(); // 添加随机参数，强制重新加载GIF
+    });
+  });
+</script>
+
+</html>
+
+
